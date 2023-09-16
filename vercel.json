@@ -1,9 +1,9 @@
 {
-  "functions": {
-    "api": "server/server.js",
-    "angular-app": {
-      "runtime": "vercel-node@1",
-      "build": "Angular-ecommerce"
-    }
-  }
+  "functions": {},
+  "routes": [],
+  "rewrites": [],
+  "headers": [],
+  "cleanUrls": true,
+  "trailingSlash": true,
+  "trailingSlash": false
 }
