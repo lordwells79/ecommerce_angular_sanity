@@ -1,0 +1,6 @@
+{
+  "functions": {
+    "api": { "handler": "server/server.js" },
+    "angular-app": { "runtime": "vercel-node@1", "build": "Angular-ecommerce" }
+  }
+}
