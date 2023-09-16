@@ -9,7 +9,8 @@ export class StripeService {
   private stripeKey: string =
     'pk_test_51LgVyyLzz7lGNntzaromVziEq1qJl2HhM30jSQAcIwv0jhes7VmPXV0Zr45m42JKe9gNyqG3tVA5iRtd3yoGAgDZ0004lIB1ws';
   cart: Cart = {};
-  url: string = 'http://localhost:3000/api/checkout_sessions';
+  url: string =
+    'https://ecommerce-angular-sanity.vercel.app/api/checkout_sessions';
 
   constructor(
     private http: HttpClient,
