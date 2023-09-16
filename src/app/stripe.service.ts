@@ -31,7 +31,7 @@ export class StripeService {
 
     console.log('carrello prima della fetch', this.cart);
     const response = await fetch(
-      'https://ecommerce-angular-sanity.vercel.app/api/checkout_sessions:3000',
+      'https://ecommerce-angular-sanity.vercel.app:3000/api/checkout_sessions',
       {
         method: 'POST',
         headers: {
