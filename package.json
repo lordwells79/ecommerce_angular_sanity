@@ -29,6 +29,7 @@
     "canvas-confetti": "^1.6.0",
     "ngx-paypal": "^11.0.0",
     "rxjs": "~7.8.0",
+    "stripe": "^13.6.0",
     "stripe-angular": "^1.9.3",
     "tslib": "^2.3.0",
     "zone.js": "~0.13.0"
