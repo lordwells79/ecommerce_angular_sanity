@@ -1,9 +1,12 @@
 {
-  "functions": {},
-  "routes": [],
-  "rewrites": [],
-  "headers": [],
-  "cleanUrls": true,
-  "trailingSlash": true,
-  "trailingSlash": false
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": "/server/server.js"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/server/server.js"
+    }
+  ]
 }
