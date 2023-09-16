@@ -1,0 +1,65 @@
+<main class="main-container">
+    <div>
+
+        <div class="product-detail-container">
+            <div>
+                <div class="image-container">
+                    <img *ngIf="product.image" src="{{imageUrl(product.image[index])}}" alt=""
+                        class="product-detail-image">
+                </div>
+                <div class="small-images-container">
+
+                    <img id="img-{{i}}" *ngFor="let image of product.image; let i = index" src="{{imageUrl(image)}}"
+                        alt="{{ product.name}}" class="small-image" [ngClass]="i===index ? 'selected-image' : '' "
+                        (mouseenter)="setIndex(i)">
+
+                </div>
+            </div>
+
+            <div class="product-detail-desc">
+                <h1>{{ product.name}}</h1>
+                <div class="reviews">
+                    <div>
+                        <fa-icon [icon]="faStar"></fa-icon>
+                        <fa-icon [icon]="faStar"></fa-icon>
+                        <fa-icon [icon]="faStar"></fa-icon>
+                        <fa-icon [icon]="faStar"></fa-icon>
+                        <fa-icon [icon]="faStar"></fa-icon>
+
+                    </div>
+                    <p>(20)</p>
+                </div>
+                <h4>Details: </h4>
+                <p>{{product.details}}</p>
+                <p class="price">$ {{product.price}}</p>
+                <div class="quantity">
+                    <h3>Quantity:</h3>
+                    <p class="quantity-desc">
+                        <span class="minus" (click)="decQty()">
+                            -
+                        </span>
+                        <span class="num">{{qty}}</span>
+                        <span class="plus" (click)="incQty()">
+                            +
+                        </span>
+                    </p>
+                </div>
+                <div class="buttons">
+                    <button type="button" class="add-to-cart" (click)="addToCart(product, qty)">Add to Cart</button>
+                    <button type="button" class="buy-now" (click)="handleBuyNow(product,qty)">
+                        Buy Now
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="maylike-products-wrapper">
+        <h2>You may also like</h2>
+        <div class="marquee">
+            <div class="maylike-products-container track">
+                <app-product></app-product>
+            </div>
+        </div>
+    </div>
+
+</main>

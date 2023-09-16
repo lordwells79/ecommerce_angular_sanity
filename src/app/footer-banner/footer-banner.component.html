@@ -1,0 +1,18 @@
+<div class="footer-banner-container">
+    <div class="banner-desc">
+        <div class="left">
+            <p>{{footerBanner.discount}}</p>
+            <h3>{{footerBanner.largeText1}}</h3>
+            <h3>{{footerBanner.largeText2}}</h3>
+            <p>{{footerBanner.saleTime}}</p>
+        </div>
+        <div class="right">
+            <p>{{footerBanner.smallText}}</p>
+            <h3>{{footerBanner.midText}}</h3>
+            <p>{{footerBanner.desc}}</p>
+            <button routerLink="/product/{{footerBanner.product}}" type="button">{{footerBanner.buttonText}}</button>
+        </div>
+    </div>
+
+    <img src="{{imageUrl(footerBanner.image)}}" alt="" class="footer-banner-image">
+</div>

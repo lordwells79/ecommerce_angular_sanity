@@ -1,0 +1,58 @@
+<div class="cart-wrapper">
+    <div class="cart-container">
+        <button type="button" class="cart-heading" (click)="setShowCart(false)">
+            <fa-icon [icon]="faChevronLeft"></fa-icon>
+            <span class="heading">Your Cart</span>
+            <span class="cart-num-items">({{cart.totalQuantities}} Items)</span>
+        </button>
+        <!-- Empty Cart -->
+        <div *ngIf="cart.totalQuantities===0" class="empty-cart">
+            <fa-icon [icon]="faBagShopping" [size]="'10x'"></fa-icon>
+            <h3>Your shopping bag is empty</h3>
+            <a href="">
+                <button class="btn" type="button" onclick="">Continue shopping</button>
+            </a>
+        </div>
+        <!-- fine Empty Cart -->
+        <div class="product-container">
+            <!-- Ciclo prodotti -->
+
+            <div *ngFor="let product of cart.cartItems" class="product">
+                <img class="cart-product-image" src="{{imageUrl(product.image[0])}}" alt="">
+                <div class="item-desc">
+                    <div class="flex top">
+                        <h5>{{product.name }}</h5>
+                        <h4>${{product.price}}</h4>
+                    </div>
+                    <div class="flex bottom">
+                        <div>
+                            <p class="quantity-desc">
+                                <span class="minus" (click)="decQty(product)"> <fa-icon
+                                        [icon]="faMinus"></fa-icon></span>
+                                <span class="num">{{product.quantity}}</span>
+                                <span class="plus" (click)="incQty(product)"> <fa-icon [icon]="faPlus"></fa-icon></span>
+                            </p>
+                        </div>
+                        <button class="remove-item" type="button" (click)="onRemoveItems(product)"><fa-icon
+                                [icon]="faCircleXmark"></fa-icon></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cart-bottom">
+            <div class="total">
+                <h3>Subtotal:</h3>
+                <h3>$ {{cart.totalPrice}}</h3>
+            </div>
+            <div class="btn-container">
+                <button type="button" class="btn" (click)="handleStripe()">
+                    Pay with Stripe
+                </button>
+            </div>
+            <div class="btn-container">
+                <app-pay-pal-button></app-pay-pal-button>
+            </div>
+            <!-- <app-checkout></app-checkout> -->
+        </div>
+    </div>
+</div>

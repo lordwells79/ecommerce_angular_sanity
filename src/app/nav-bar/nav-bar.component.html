@@ -1,0 +1,9 @@
+<div class="navbar-container">
+    <p class="logo">
+        <a href="/">RCL Angular Sanity Store</a>
+    </p>
+    <button type="button" class="cart-icon" (click)="setShowCart(true)">
+        <fa-icon [icon]="faBagShopping"></fa-icon>
+        <span class="cart-item-qty">{{items}}</span>
+    </button>
+</div>
