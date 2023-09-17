@@ -9,13 +9,9 @@ export class StripeService {
   private stripeKey: string =
     'pk_test_51LgVyyLzz7lGNntzaromVziEq1qJl2HhM30jSQAcIwv0jhes7VmPXV0Zr45m42JKe9gNyqG3tVA5iRtd3yoGAgDZ0004lIB1ws';
   cart: Cart = {};
-  url: string =
-    'https://ecommerce-angular-sanity.vercel.app:3000/api/checkout_sessions';
+  url: string = 'http://localhost:3000/api/checkout_sessions';
 
-  constructor(
-    private http: HttpClient,
-    private contextService: ContextService
-  ) {}
+  constructor(private contextService: ContextService) {}
   getStripeKey(): string {
     return this.stripeKey;
   }
@@ -31,7 +27,7 @@ export class StripeService {
 
     console.log('carrello prima della fetch', this.cart);
     const response = await fetch(
-      'https://ecommerce-angular-sanity.vercel.app:3000/api/checkout_sessions',
+      'http://localhost:3000/api/checkout_sessions',
       {
         method: 'POST',
         headers: {
