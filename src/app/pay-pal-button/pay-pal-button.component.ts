@@ -8,6 +8,7 @@ import {
 
 import { HttpClient } from '@angular/common/http';
 import { Cart, ContextService } from '../context.service';
+import { environment } from '../../../environments/environment';
 @Component({
   selector: 'app-pay-pal-button',
   templateUrl: './pay-pal-button.component.html',
@@ -16,6 +17,7 @@ import { Cart, ContextService } from '../context.service';
 export class PayPalButtonComponent {
   public payPalConfig?: IPayPalConfig;
   cart: Cart = {};
+  url = environment.apiUrl;
 
   constructor(
     private http: HttpClient,
@@ -32,7 +34,7 @@ export class PayPalButtonComponent {
         'AcSI5h8u49XhtqWW5zHgTPzoLwjQjfVYdl2MmMU3qtPB1zAtplWwxOZM5XWZvWilkUuaMCGrStpI6F6N',
       createOrderOnServer: (data) => {
         console.log('CREATING ORDER', { data });
-        return fetch('http://localhost:3000/api/paypal', {
+        return fetch(this.url + 'api/paypal', {
           method: 'post',
           headers: {
             'Content-Type': 'application/json', // Imposta l'header Content-Type

@@ -7,12 +7,11 @@ import { environment } from '../../environments/environment';
 })
 export class PaypalService {
   cart: Cart = {};
-  urlCreate: string = environment.apiUrl;
+  urlCreate: any = environment.apiUrl;
 
   constructor() {}
 
   createOrder(data: any) {
-    console.log(this.urlCreate);
     // Order is created on the server and the order id is returned
     return fetch(this.urlCreate + 'api/paypal', {
       method: 'POST',
