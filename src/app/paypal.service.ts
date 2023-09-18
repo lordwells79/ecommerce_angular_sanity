@@ -12,7 +12,7 @@ export class PaypalService {
 
   createOrder(data: any) {
     // Order is created on the server and the order id is returned
-    return fetch(this.urlCreate + 'paypal', {
+    return fetch(this.urlCreate + 'api/paypal', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
