@@ -1,17 +1,18 @@
 import { Injectable } from '@angular/core';
 import { Cart, ContextService } from './context.service';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class PaypalService {
   cart: Cart = {};
-  urlCreate: string = 'http://localhost:3000/api/orders';
+  urlCreate: string = environment.apiUrl;
   constructor(private contextService: ContextService) {}
 
   createOrder(data: any) {
     // Order is created on the server and the order id is returned
-    return fetch(this.urlCreate, {
+    return fetch(this.urlCreate + 'paypal', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -32,7 +33,7 @@ export class PaypalService {
   }
   onApprove(data: any, actions: any) {
     // Order is captured on the server
-    return fetch('http://localhost:3000/api/orders/${data.orderID}/capture', {
+    return fetch(this.urlCreate + '/api/orders/${data.orderID}/capture', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

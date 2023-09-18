@@ -1,5 +1,6 @@
 export const environment = {
   production: false,
+  apiUrl: 'http://localhost:3000/',
   SANITY_PROJECT_ID: '5787cgui',
   SANITY_DATASET: 'production',
   SANITY_API_VERSION: '2023-08-10',

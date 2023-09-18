@@ -32,7 +32,7 @@ export class PayPalButtonComponent {
         'AcSI5h8u49XhtqWW5zHgTPzoLwjQjfVYdl2MmMU3qtPB1zAtplWwxOZM5XWZvWilkUuaMCGrStpI6F6N',
       createOrderOnServer: (data) => {
         console.log('CREATING ORDER', { data });
-        return fetch('http://localhost:3000/api/orders', {
+        return fetch('http://localhost:3000/api/paypal', {
           method: 'post',
           headers: {
             'Content-Type': 'application/json', // Imposta l'header Content-Type
