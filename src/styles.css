@@ -760,6 +760,7 @@ span.text-red {
     padding: 30px 0;
     position: static;
     background: #fff;
+    min-height: 500px;
   }
   .total {
     justify-content: space-around;
