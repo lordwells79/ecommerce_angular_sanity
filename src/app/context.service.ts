@@ -40,6 +40,7 @@ export class ContextService {
       totalQuantities: 0,
     };
     this.cartItemCountSubject.next(this.cart.totalQuantities!);
+    localStorage.removeItem('cart');
   }
 
   onAdd(product: Product, quantity: number) {
@@ -62,9 +63,8 @@ export class ContextService {
       this.cart.totalPrice! += product.price! * quantity;
       this.cart.totalQuantities! += quantity;
     }
+    this.saveCart();
     this.cartItemCountSubject.next(this.cart.totalQuantities!);
-    console.log(quantity + ' ' + product.name + ' added to Cart.');
-    console.log(this.cart);
   }
   onRemoveItems(product: Product): void {
     const checkProductInCart = this.cart.cartItems!.find(
@@ -78,6 +78,7 @@ export class ContextService {
       this.cart.totalPrice! -=
         checkProductInCart.price! * checkProductInCart.quantity!;
       this.cart.totalQuantities! -= checkProductInCart.quantity!;
+      this.saveCart();
       this.cartItemCountSubject.next(this.cart.totalQuantities!);
     }
   }
@@ -92,11 +93,21 @@ export class ContextService {
           this.cart.totalPrice! -= product.price!;
           this.cart.totalQuantities! -= 1;
         }
+        this.saveCart();
         this.cartItemCountSubject.next(this.cart.totalQuantities!);
       }
     });
   }
   getCartItems(): Cart {
     return this.cart;
+  }
+
+  loadCart(): void {
+    this.cart = JSON.parse(localStorage.getItem('cart')!) ?? this.cart;
+    this.cartItemCountSubject.next(this.cart.totalQuantities!);
+  }
+
+  saveCart(): void {
+    localStorage.setItem('cart', JSON.stringify(this.cart));
   }
 }

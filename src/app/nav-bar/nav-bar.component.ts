@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ContextService } from './../context.service';
+import { Cart, ContextService } from './../context.service';
 import { faCoffee, faBagShopping } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
@@ -14,6 +14,8 @@ export class NavBarComponent {
 
   constructor(private contextService: ContextService) {}
   ngOnInit(): void {
+    this.contextService.loadCart();
+
     this.contextService.getCartItemCount().subscribe((itemsConunt) => {
       this.items = itemsConunt;
     });
