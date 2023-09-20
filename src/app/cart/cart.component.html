@@ -4,7 +4,15 @@
             <fa-icon [icon]="faChevronLeft"></fa-icon>
             <span class="heading">Your Cart</span>
             <span class="cart-num-items">({{cart.totalQuantities}} Items)</span>
+
         </button>
+        <div class="pay_test">
+            <h5>Credenziali test pagamenti:</h5>
+            <h6>Stripe 4242 4242 4242 4242 Scad. data futura</h6>
+            <h6>Paypal sb-zyoz4727229214@personal.example.com</h6>
+            <h6>{{ 'Password: #&${%rI0' }}</h6>
+        </div>
+
         <!-- Empty Cart -->
         <div *ngIf="cart.totalQuantities===0" class="empty-cart">
             <fa-icon [icon]="faBagShopping" [size]="'10x'"></fa-icon>

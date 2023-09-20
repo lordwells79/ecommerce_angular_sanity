@@ -46,7 +46,11 @@ import { PayPalButtonComponent } from './pay-pal-button/pay-pal-button.component
     NgxPayPalModule,
     CommonModule,
     BrowserAnimationsModule, // required animations module
-    ToastrModule.forRoot(), // ToastrModule added
+    ToastrModule.forRoot({
+      timeOut: 1000,
+      positionClass: 'toast-top-center',
+      preventDuplicates: true,
+    }), // ToastrModule added
     StripeModule.forRoot(''),
   ],
   providers: [],

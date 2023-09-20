@@ -784,3 +784,13 @@ span.text-red {
     margin: 16px auto;
   }
 }
+
+/* testo credenziali pagamenti*/
+.pay_test {
+  padding: 8px;
+  color: #333;
+}
+.pay_test h6,
+.pay_test h5 {
+  margin-top: 8px;
+}
