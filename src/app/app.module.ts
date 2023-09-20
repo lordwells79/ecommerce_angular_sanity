@@ -2,6 +2,10 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { StripeModule } from 'stripe-angular';
 import { NgxPayPalModule } from 'ngx-paypal';
+import { CommonModule } from '@angular/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { ToastrModule } from 'ngx-toastr';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -40,6 +44,9 @@ import { PayPalButtonComponent } from './pay-pal-button/pay-pal-button.component
     FontAwesomeModule,
     HttpClientModule,
     NgxPayPalModule,
+    CommonModule,
+    BrowserAnimationsModule, // required animations module
+    ToastrModule.forRoot(), // ToastrModule added
     StripeModule.forRoot(''),
   ],
   providers: [],

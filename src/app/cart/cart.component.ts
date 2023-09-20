@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Product, SanityServiceService } from '../sanity-service.service';
 import { Output, EventEmitter } from '@angular/core';
 import { Cart, ContextService } from '../context.service';
+import { ToastrService } from 'ngx-toastr';
 
 import {
   faChevronLeft,
@@ -38,7 +39,8 @@ export class CartComponent {
     private sanityService: SanityServiceService,
     private contextService: ContextService,
     private stripeService: StripeService,
-    private payPalService: PaypalService
+    private payPalService: PaypalService,
+    private toastr: ToastrService
   ) {}
 
   defaultImageURL = '';
@@ -56,22 +58,24 @@ export class CartComponent {
   incQty(product: Product): void {
     if (product.quantity) {
       this.contextService.onAdd(product, 1);
-      //product.quantity++;
+      this.toastr.success('1 Articolo Aggiunto');
     }
 
     this.cart = this.contextService.getCartItems();
-    console.log('Inc qty ', this.cart);
+    // console.log('Inc qty ', this.cart);
   }
   decQty(product: Product): void {
     if (product.quantity === 1) {
       return;
     }
     this.contextService.onUpdateQty(product);
-    console.log('Dec qty ', this.cart);
+    //console.log('Dec qty ', this.cart);
+    this.toastr.success('1 Articolo Eliminato');
   }
   onRemoveItems(product: Product) {
     this.contextService.onRemoveItems(product);
     console.log('On remove ', this.cart);
+    this.toastr.success('Articolo Eliminato');
   }
   handleStripe() {
     this.stripeService.handlePayment();

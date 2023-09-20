@@ -1,4 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
+@import "ngx-toastr/toastr";
 html,
 body,
 * {
@@ -384,7 +385,7 @@ span.text-red {
 
 .btn-container {
   width: 400px;
-  margin: auto;
+  margin: 16px auto;
 }
 .btn {
   width: 100%;
@@ -780,6 +781,6 @@ span.text-red {
   }
   .btn-container {
     width: 300px;
-    margin: auto;
+    margin: 16px auto;
   }
 }

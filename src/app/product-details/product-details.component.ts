@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Product, SanityServiceService } from '../sanity-service.service';
 import { ContextService } from '../context.service';
+import { ToastrService } from 'ngx-toastr';
 
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
@@ -16,7 +17,8 @@ export class ProductDetailsComponent {
     private sanityService: SanityServiceService,
     private contextService: ContextService,
     private route: ActivatedRoute,
-    private location: Location
+    private location: Location,
+    private toastr: ToastrService
   ) {}
 
   //slug: any;
@@ -62,6 +64,7 @@ export class ProductDetailsComponent {
   }
   addToCart(product: Product, quantity: number) {
     this.contextService.onAdd(product, quantity);
+    this.toastr.success('Articolo Aggiunto al carrello');
   }
   incQty(): void {
     this.qty++;
